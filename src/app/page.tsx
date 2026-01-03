@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
-import BookingButton from '@/components/BookingModal';
+import dynamic from 'next/dynamic';
+const BookingButton = dynamic(() => import('@/components/BookingModal'), { ssr: false });
 import { motion } from 'framer-motion';
 import { CheckCircle, MessageCircle, Calendar, Shield, Award, MapPin, Phone } from 'lucide-react';
 
@@ -20,17 +21,14 @@ const jsonLd = {
 };
 
 // Inside your component return:
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-/>
+// JSON-LD will be injected inside the component return to avoid top-level JSX
 
 // Animation Variants
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6, ease: "easeOut" }
+  transition: { duration: 0.6 }
 };
 
 const staggerContainer = {
@@ -44,6 +42,10 @@ export default function TherapistPage() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2D3E33] selection:bg-[#2D3E33] selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       
       {/* --- FLOATING WHATSAPP --- */}
       <motion.a 
