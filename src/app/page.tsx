@@ -76,7 +76,7 @@ export default function TherapistPage() {
 
       {/* --- HERO SECTION --- */}
       <section className="relative h-screen flex flex-col justify-center items-center px-6 text-center">
-        <motion.div {...fadeInUp}>
+        {/* <motion.div {...fadeInUp}> */}
           <span className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-6 block">Nairobi, Kenya</span>
           <h1 className="text-6xl md:text-8xl font-serif mb-8 leading-tight">
             Empathy Starts <br /> <span className="italic font-light">With Being Heard.</span>
@@ -92,7 +92,7 @@ export default function TherapistPage() {
               Direct WhatsApp
             </a>
           </div>
-        </motion.div>
+        {/* </motion.div> */}
       </section>
 
       {/* --- ABOUT SECTION --- */}
